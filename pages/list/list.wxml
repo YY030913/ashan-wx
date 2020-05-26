@@ -1,0 +1,22 @@
+<view class="search">
+  <view class="search-result">
+    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+      <view class='result-list' wx:for="{{searchSongList}}" wx:key="unique" data-data="{{item}}">
+        <navigator hover-class='none' url="../detail/detail?video={{item.videoId}}&index=1">
+          <view class="result-item">
+            <i class="iconfont icon-icon_bofang-"></i>
+            <image mode='aspectFill' src='{{item.cover}}'></image>
+            <view class='result-des'>
+              <view class="result-name">{{item.name}}</view>
+              <!--<text class='result-left'>{{item.favoriteCount}}人已经点赞</text>-->
+              <!--<text class='result-right'></text>-->
+            </view>
+          </view>
+        </navigator>
+
+      </view>
+      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+      <view class="loading complete" hidden="{{!searchLoadingComplete}}">我是有底线的</view>
+    </scroll-view>
+  </view>
+</view>
